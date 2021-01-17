@@ -1,6 +1,7 @@
 module.exports = {
   transpileDependencies: ["vuetify"],
   pwa: {
+    msTileColor: "#F2F2F0",
     manifestOptions: {
       name: "Prépa-Tools",
       short_name: "Prépa",
