@@ -14,34 +14,34 @@
           autofocus
         />
       <div class="d-flex flex-column justify-space-evenly ml-10" style="width:25vw">
-        <div>
+        <v-container>
           <v-row><label for="space">Espacement</label></v-row>
           <v-row class="ml-1">
             <div style="width:120px"><v-text-field v-model="spacing" name="space" dense flat class="d-inline-block centered-input" type="number" background-color="light" suffix="mots" solo /></div>
             <v-slider max="100" min="1" v-model="spacing"/>
           </v-row>
-        </div>
-        <div>
+        </v-container>
+        <v-container>
           <v-row>
             <label for="delimiter">Marqueur</label>
             <div class="ml-3" style="width: 40px"><v-text-field v-model="delimiter" name="delimiter" dense flat class="d-inline centered-input" type="text" background-color="light" solo width="20px"/></div>
             </v-row>
-        </div>
-        <div>
+        </v-container>
+        <v-container>
           <v-row><label for="nbWord">Nombre de mots</label></v-row>
           <v-row class="ml-1">
             <div style="width:120px"><v-text-field v-model="nbWord" name="nbWord" dense flat class="d-inline centered-input" type="number" suffix="mots" background-color="light" solo/></div>
             <v-slider v-model="nbWord" max="1000" min="10"/>
           </v-row>
-        </div>
-        <div>
+        </v-container>
+        <v-container>
           <v-row><label for="margin">Marge +/-</label></v-row>
           <v-row class="ml-1">
             <div style="width:120px"><v-text-field v-model="margin" name="margin" dense flat class="d-inline centered-input" type="number" background-color="light" suffix="%" solo width="20px"/></div>
             <v-slider min="0" max="100" v-model="margin"/>
           </v-row>
-        </div>
-        <div>
+        </v-container>
+        <v-container>
           <v-row><label for="exceptions">Exceptions</label></v-row>
           <v-row class="ml-1">
             <v-combobox
@@ -57,7 +57,7 @@
               deletable-chips
             />
           </v-row>
-        </div>
+        </v-container>
       </div>
     </div>
     <div class="d-flex justify-space-between mt-3">
