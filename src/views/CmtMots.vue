@@ -206,4 +206,7 @@ export default Vue.extend({
   height: 100%;
 }
 
+.cmtMots .row{
+  margin: inherit;
+}
 </style>
