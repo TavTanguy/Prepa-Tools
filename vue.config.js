@@ -1,13 +1,13 @@
 module.exports = {
   transpileDependencies: ["vuetify"],
   pwa: {
-    msTileColor: "#F2F2F0",
     manifestOptions: {
       name: "Prépa-Tools",
       short_name: "Prépa",
       start_url: ".",
       display: "standalone",
-      theme_color: "#038C4C"
+      theme_color: "#038C4C",
+      background_color: "#F2F2F0"
     },
     iconPaths: {
       favicon32: 'img/icons/favicon-32x32.png',
