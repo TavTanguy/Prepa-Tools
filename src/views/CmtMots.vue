@@ -205,7 +205,8 @@ export default Vue.extend({
 .cmtMots .v-textarea .v-input__control {
   height: 100%;
 }
-.comtMots .row{
+
+.cmtMots .row{
   margin: inherit;
 }
 </style>
