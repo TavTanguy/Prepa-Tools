@@ -1,7 +1,7 @@
 <template>
   <div class="cmtMots">
     <title-under class="mt-5">Compteur de mots</title-under>
-    <div class="d-flex mt-9 mx-2">
+    <div class="d-flex mt-9 mx-2 rmFlex">
       <v-textarea
           id="textAreaCmtMots"
           v-model.trim="text"
@@ -13,12 +13,12 @@
           height="100%"
           autofocus
         />
-      <div class="d-flex flex-column justify-space-evenly ml-10" style="width:25vw">
+      <div class="d-flex flex-column justify-space-evenly ml-10 params">
         <v-container>
           <v-row><label for="space">Espacement</label></v-row>
           <v-row class="ml-1">
             <div style="width:120px"><v-text-field v-model="spacing" name="space" dense flat class="d-inline-block centered-input" type="number" background-color="light" suffix="mots" solo /></div>
-            <v-slider max="100" min="1" v-model="spacing"/>
+            <v-slider style="min-width: 160px;" max="100" min="1" v-model="spacing"/>
           </v-row>
         </v-container>
         <v-container>
@@ -31,14 +31,14 @@
           <v-row><label for="nbWord">Nombre de mots</label></v-row>
           <v-row class="ml-1">
             <div style="width:120px"><v-text-field v-model="nbWord" name="nbWord" dense flat class="d-inline centered-input" type="number" suffix="mots" background-color="light" solo/></div>
-            <v-slider v-model="nbWord" max="1000" min="10"/>
+            <v-slider style="min-width: 160px;" v-model="nbWord" max="1000" min="10"/>
           </v-row>
         </v-container>
         <v-container>
           <v-row><label for="margin">Marge +/-</label></v-row>
           <v-row class="ml-1">
             <div style="width:120px"><v-text-field v-model="margin" name="margin" dense flat class="d-inline centered-input" type="number" background-color="light" suffix="%" solo width="20px"/></div>
-            <v-slider min="0" max="100" v-model="margin"/>
+            <v-slider style="min-width: 160px;" min="0" max="100" v-model="margin"/>
           </v-row>
         </v-container>
         <v-container>
@@ -60,7 +60,7 @@
         </v-container>
       </div>
     </div>
-    <div class="d-flex justify-space-between mt-3">
+    <div class="d-flex justify-space-between mt-3 rmFlex">
       <v-card class="d-flex pa-3 mx-3">
         <v-icon v-if="validText" color="primary" large>check</v-icon>
         <v-icon v-else color="error" large>close</v-icon>
@@ -191,6 +191,10 @@ export default Vue.extend({
   margin: auto;
 }
 
+.params {
+  width: 25vw;
+}
+
 .container {
   padding-bottom: 0;
   padding-top: 0;
@@ -208,5 +212,16 @@ export default Vue.extend({
 
 .cmtMots .row{
   margin: inherit;
+}
+
+
+@media screen and (max-width: 1030px) {
+  .v-application .cmtMots .d-flex.rmFlex{
+    display: block !important;
+  }
+  .cmtMots .params {
+    width: unset;
+    margin-left: 0 !important;
+  }
 }
 </style>
