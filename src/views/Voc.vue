@@ -20,25 +20,34 @@
               placeholder="ex: Français:French"
               label="Vos mots"
             />
-          <label for="random">Ordre aléatoire de la liste</label>
-          <v-switch v-model="randomOrder" name="random" class="d-inline-block ml-3 mr-1"/>
-
-          <label for="randomDirection">Langue aléatoire de la liste</label>
-          <v-switch v-model="randomDirection" name="randomDirection" class="d-inline-block ml-3 mr-1"/>
+          <div class="d-flex flex-wrap">
+            <div>
+              <label for="random">Ordre aléatoire de la liste</label>
+              <v-switch v-model="randomOrder" name="random" class="d-inline-block ml-3 mr-1"/>
+            </div>
+            <div>
+              <label for="randomDirection">Langue aléatoire de la liste</label>
+              <v-switch v-model="randomDirection" name="randomDirection" class="d-inline-block ml-3 mr-1"/>
+            </div>
+          </div>
+          
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
           <v-btn color="light" @click="showDialog = false">Annuler</v-btn>
-          <v-btn color="primary" x-large @click="saveWords">Valider</v-btn>
+          <v-btn color="primary" x-large @click="saveWords" :disabled="inputWords.length == 0">Valider</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
     <v-btn elevation="2" color="primary" style="bottom: 12px" fab large absolute bottom right @click="showDialog = true"><v-icon large>add</v-icon></v-btn>
     <title-under class="mt-5">Vocabulaire</title-under>
-    <v-progress-linear class="mx-10 mt-8" color="light" :value="((showRes?currentIndex+1:currentIndex)/listWords.length) * 100" />
-    <div class="mx-10 mt-8 d-flex justify-center">
+    <div class="mx-10 mt-8">
+      <v-progress-linear color="light" :value="((showRes?currentIndex+1:currentIndex)/listWords.length) * 100" />
+    </div>
+    <div class="mx-10 mt-8 d-flex rmFlex flex-wrap justify-center">
       <v-btn class="mt-2 mr-10" color="light" text @click="start">Recommencer</v-btn>
       <v-badge
+        style="min-width: 225px"
         class="d-inline-block"
         color="primary"
         :content="ask"
@@ -46,8 +55,10 @@
       >
         <v-text-field solo v-model="input" @keydown="keyDown"/>
       </v-badge>
-      <v-btn class="mt-2 ml-7" color="primary" @click="showRes=true">Valider</v-btn>
-      <v-btn class="mt-2 ml-7" color="light" @click="next">Suivant</v-btn>
+      <div class="mr-10">
+        <v-btn class="mt-2 ml-7" color="primary" @click="showRes=true">Valider</v-btn>
+        <v-btn class="mt-2 ml-7" color="light" @click="next">Suivant</v-btn>
+      </div>
     </div>
     <p class="text-center" :class="colorText !== ''? colorText+'--text':''" v-show="showRes">Réponse: {{res}}</p>
   </div>
@@ -170,5 +181,14 @@ export default Vue.extend({
 .voc {
   width: 95vw;
   margin: auto;
+}
+</style>
+
+<style>
+@media screen and (max-width: 960px) {
+  .v-application .voc .d-flex.rmFlex{
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
