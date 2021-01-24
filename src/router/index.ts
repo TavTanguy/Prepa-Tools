@@ -11,16 +11,7 @@ const routes: Array<RouteConfig> = [
     name: "Accueil",
     component: Home
   },
-  ...tools,
-  {
-    path: "/voc",
-    name: "Vocabulaire",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "Voc" */ "../views/Voc.vue")
-  }
+  ...tools
 ];
 
 const router = new VueRouter({

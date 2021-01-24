@@ -68,7 +68,7 @@
       </v-card>
       <div>
         <label for="showDelimiters">Afficher les marquers d'espacement</label>
-        <v-switch cl v-model="showDelimiter" name="showDelimiters" class="d-inline-block ml-3 mr-1"/>
+        <v-switch v-model="showDelimiter" name="showDelimiters" class="d-inline-block ml-3 mr-1"/>
         <btn-icon icon="mdi-content-copy" @click="toClipboard">Copier</btn-icon>
         <btn-icon icon="mdi-content-paste" @click="past">Coller</btn-icon>
       </div>
