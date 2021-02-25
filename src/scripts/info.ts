@@ -5,5 +5,6 @@ export const tools: {
   icon: string;
 }[] = [
   {name: "Compteur de mots", icon: "pencil.svg", path: "/cmtMots", component: () => import(/* webpackChunkName: "cmtMots" */"../views/CmtMots.vue")},
-  {name: "Vocabulaire", icon: "message-processing.svg", path: "/voc", component: () => import(/* webpackChunkName: "cmtMots" */"../views/Voc.vue")}
+  {name: "Vocabulaire", icon: "message-processing.svg", path: "/voc", component: () => import(/* webpackChunkName: "cmtMots" */"../views/Voc.vue")},
+  {name: "Colle", icon: "human-male-board.svg", path: "/colle", component: () => import(/* webpackChunkName: "cmtMots" */"../views/Colle.vue")}
 ]
