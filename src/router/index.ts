@@ -9,9 +9,15 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Accueil",
-    component: Home
+    component: Home,
   },
-  ...tools
+  ...tools,
+  {
+    path: "/formatCsvColle",
+    name: "Format Csv Colle",
+    component: () =>
+      import(/* webpackChunkName: "cmtMots" */ "../views/FormatCsvColle.vue"),
+  },
 ];
 
 const router = new VueRouter({
