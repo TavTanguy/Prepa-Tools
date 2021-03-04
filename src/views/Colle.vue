@@ -14,7 +14,7 @@
               rows="5"
             ></v-textarea>
             Ajoute une colle:
-            <add-colle @add="addColle"/>
+            <add-colle @add="addColle" />
           </v-card-text>
           <v-card-actions>
             <v-spacer />
@@ -24,18 +24,6 @@
         </v-form>
       </v-card>
     </v-dialog>
-    <v-btn
-      elevation="2"
-      color="primary"
-      style="bottom: 12px"
-      fab
-      large
-      absolute
-      bottom
-      right
-      @click="showDialogEdit = true"
-      ><v-icon large>add</v-icon></v-btn
-    >
     <v-card v-if="nextColle != {} && nextColle.dateStart" class="mb-9">
       <v-card-title> Prochaine Colle </v-card-title>
       <v-simple-table>
@@ -74,10 +62,22 @@
         {{ item.showDate }}
       </template>
     </v-data-table>
-    <div class="table-footer-prepend d-flex pl-2 align-center">
+    <div class="table-footer-prepend d-flex pl-2 align-center; width: 33vw; flex-wrap: wrap;">
       <label style="font-size: 12px !important" class="mx-3 text-body-2"
         >Afficher les colles passé</label
       ><v-switch v-model="showOldColle" />
+    </div>
+    <div class="d-flex justify-end mx-3 mt-2">
+      <v-btn
+        elevation="2"
+        color="primary"
+        fab
+        large
+        bottom
+        right
+        @click="showDialogEdit = true"
+        ><v-icon large>add</v-icon></v-btn
+      >
     </div>
   </div>
 </template>
@@ -138,10 +138,10 @@ export default Vue.extend({
       this.showDialogEdit = false;
       this.convertCsv();
     },
-    addColle(colle: Colle){
-      this.colles.push(colle)
+    addColle(colle: Colle) {
+      this.colles.push(colle);
       localStorage.setItem("colles", JSON.stringify(this.colles));
-    }
+    },
   },
   mounted() {
     const input = localStorage.getItem("colles");

@@ -67,19 +67,9 @@ function getDateOfColle(idCol: number, idLigne: number) {
   });
 
   const dateStart = new Date();
-  dateStart.setUTCHours(0, 0, 0, 0);
+  dateStart.setHours(0, 0, 0, 0);
   dateStart.setMonth(month - 1);
   dateStart.setDate(day + calcAddDays(items[idLigne][3]));
-  if (idCol === 10 && idLigne === 10)
-    console.log(
-      day,
-      month,
-      day + calcAddDays(items[idLigne][3]),
-      dateStart,
-      dateStart.getTime(),
-      dateStart.getUTCDate(),
-      `${dateStart.getUTCFullYear()}-${dateStart.getUTCMonth()}-${dateStart.getUTCDay()} ${dateStart.getUTCHours()}:${dateStart.getUTCMinutes()}:0`
-    );
   const dateEnd = new Date(dateStart);
   dateStart.setHours(start.hour, start.min);
   dateEnd.setHours(end.hour, end.min);
@@ -87,8 +77,8 @@ function getDateOfColle(idCol: number, idLigne: number) {
 }
 
 function convertDateToStr(date: Date) {
-  return `${date.getUTCFullYear()}-${date.getUTCMonth() +
-    1}-${date.getUTCDate()} ${date.getUTCHours()}:${date.getUTCMinutes()}:0`;
+  return `${date.getFullYear()}-${date.getMonth() +
+    1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:0`;
 }
 
 export function getCsvFormat(idGroup: number) {
